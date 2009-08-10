@@ -8,6 +8,19 @@ A Merb like router for the Joyent Smart Plaform.
     match('/index.html').to({ controller: 'Home', action: 'index' });
     match('/:controller/:action/:id').to();
     
+    // Simple Resource Support
+    
+    resources('task'); 
+    /*
+     Generates 
+        /tasks/index        GET
+        /tasks/:id/show     GET
+        /tasks/new          GET | POST
+        /tasks/update       PUT
+        /tasks/:id/edit     GET | PUT
+        /tasks/:id/delete   GET | DELETE        
+    */
+    
 ##  Smart Controller ##
 
       HomeController = {
@@ -20,7 +33,10 @@ A Merb like router for the Joyent Smart Plaform.
         }    
       }
    
+   
 Controllers are just object literals that return a string. The name must start with a capital and end in 'Controller'.
+
+Params are passed into the conroller via 'params'. So data.params.id, data.params.controller, etc.
 
 ## Preview Release ##
 There are bugs, you have been warned :) Please fork, comment, and help me make this better.

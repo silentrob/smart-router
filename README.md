@@ -7,7 +7,25 @@ A Merb like router for the Joyent Smart Plaform.
 
     match('/index.html').to({ controller: 'Home', action: 'index' });
     match('/:controller/:action/:id').to();
-      
+    
+##  Smart Controller ##
+
+      HomeController = {
+        index : function (data) {  
+          return "This is a Controller";
+        },
+    
+        home : function (data) {    
+          return "This is the Home action"; 
+        }    
+      }
+   
+Controllers are just object literals that return a string. The name must start with a capital and end in 'Controller'.
+
+## Preview Release ##
+There are bugs, you have been warned :) Please fork, comment, and help me make this better.
+
+
 ## The MIT License ##
 
 Copyright (c) 2009 Rob Ellis
